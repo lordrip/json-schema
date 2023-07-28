@@ -42,5 +42,6 @@
   "resolutions": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "packageManager": "yarn@3.6.1"
 }
