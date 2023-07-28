@@ -4,14 +4,27 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@kie-tools/uniforms-patternfly": "^0.30.0",
+    "@patternfly/patternfly": "^4.224.0",
+    "@patternfly/react-code-editor": "4.82.115",
+    "@patternfly/react-core": "^4.276.6",
+    "@patternfly/react-icons": "^4.93.6",
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "monaco-editor": "^0.34.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-monaco-editor": "^0.51.0",
+    "uniforms": "^3.10.2",
+    "uniforms-bridge-json-schema": "^3.10.2",
+    "uniforms-unstyled": "^3.10.2",
+    "yaml": "^2.2.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -19,10 +32,15 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "ajv-cli": "^5.0.0",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
+  },
+  "resolutions": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
