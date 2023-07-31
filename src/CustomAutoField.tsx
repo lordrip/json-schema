@@ -2,7 +2,6 @@ import {
   BoolField,
   DateField,
   ListField,
-  NestField,
   NumField,
   RadioField,
   SelectField,
@@ -10,11 +9,18 @@ import {
 } from '@kie-tools/uniforms-patternfly';
 import invariant from 'invariant';
 import { FunctionComponent } from 'react';
-import { createAutoField } from 'uniforms';
+import { connectField, createAutoField } from 'uniforms';
+import NestField from './NestField';
 
 export const CustomAutoField = createAutoField((props) => {
   if (props.allowedValues) {
     return props.checkboxes && props.fieldType !== Array ? RadioField : SelectField;
+  }
+
+  console.log(props.name);
+
+  if (props.name.endsWith('steps')) {
+    return connectField(InternalNestField);
   }
 
   switch (props.fieldType) {
@@ -27,7 +33,7 @@ export const CustomAutoField = createAutoField((props) => {
     case Number:
       return NumField;
     case Object:
-      return InternalNestField;
+      return NestField;
     case String:
       return TextField;
   }
@@ -37,6 +43,8 @@ export const CustomAutoField = createAutoField((props) => {
 
 export const InternalNestField: FunctionComponent = (props) => {
   return (
-    <span>hola</span>
+    <code>
+      <pre>{JSON.stringify(props, null, 2)}</pre>
+    </code>
   );
 };

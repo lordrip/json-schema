@@ -2,7 +2,7 @@ import { AutoFields, AutoForm, ErrorsField, SubmitField } from '@kie-tools/unifo
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import { JSONSchemaBridge } from './JSONSchemaBridgeLocal';
 import './App.css';
-import { CustomAutoField } from './CustomNestedField';
+import { CustomAutoField } from './CustomAutoField';
 import { SchemaService } from './SchemaService';
 import { ModelDefinition } from './models/model-definition';
 
@@ -40,8 +40,8 @@ export const Form: FunctionComponent<FormProps> = (props) => {
             props.setModel?.(model);
           }}
         >
-          {/* <AutoFields autoField={CustomAutoField} /> */}
-          <AutoFields />
+          <AutoFields autoField={CustomAutoField} />
+          {/* <AutoFields /> */}
           <ErrorsField />
           <SubmitField />
         </AutoForm>

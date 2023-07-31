@@ -208,6 +208,7 @@ export class JSONSchemaBridge extends Bridge {
   }
 
   getInitialValue(name: string): any {
+    console.log(name);
     const field = this.getField(name);
     const {
       default: defaultValue = field.default ?? get(this.schema.default, name),
@@ -219,6 +220,7 @@ export class JSONSchemaBridge extends Bridge {
     }
 
     if (type === 'array') {
+      return [];
       const item = this.getInitialValue(joinName(name, '$'));
       if (item === undefined) {
         return [];
