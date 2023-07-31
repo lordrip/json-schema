@@ -1,5 +1,5 @@
 import Ajv, { JSONSchemaType } from 'ajv';
-import { JSONSchemaBridge } from 'uniforms-bridge-json-schema';
+import { JSONSchemaBridge } from './JSONSchemaBridgeLocal';
 import addFormats from 'ajv-formats';
 
 export class SchemaService {

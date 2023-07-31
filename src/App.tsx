@@ -23,8 +23,6 @@ export function App() {
 
   const onModelClick = useCallback((modelName: string) => {
     const model = modelsManagerRef.current.getModelDefinition(modelName);
-    console.log(modelName, model);
-
     setCurrentModelDefinition(model);
   }, []);
 

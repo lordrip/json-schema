@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "maxProperties": 1,
+    "definitions": {
+      "org.apache.camel.model.OnExceptionDefinition": {
+        "type": "object",
+        "properties": {
+          "on-when": {
+            "$ref": "#/items/definitions/org.apache.camel.model.WhenDefinition"
+          }
+        }
+      },
+      "org.apache.camel.model.WhenDefinition": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "$ref": "#/items/definitions/org.apache.camel.model.language.ExpressionDefinition"
+          }
+        }
+      },
+      "org.apache.camel.model.language.ExpressionDefinition": {
+        "type": "object",
+        "properties": {
+          "constant": {
+            "$ref": "#/items/definitions/org.apache.camel.model.language.ConstantExpression"
+          }
+        }
+      },
+      "org.apache.camel.model.language.ConstantExpression" : {
+        "oneOf" : [ {
+          "type" : "string"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "expression" : {
+              "type" : "string"
+            },
+            "id" : {
+              "type" : "string"
+            },
+            "result-type" : {
+              "type" : "string"
+            },
+            "trim" : {
+              "type" : "boolean"
+            }
+          }
+        } ],
+        "required" : [ "expression" ]
+      }
+    },
+    "properties": {
+      "on-exception-recursive": {
+        "$ref": "#/items/definitions/org.apache.camel.model.OnExceptionDefinition"
+      }
+    }
+  }
+}
