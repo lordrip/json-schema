@@ -2213,9 +2213,9 @@ __metadata:
     react-dom: ^18.2.0
     react-monaco-editor: ^0.51.0
     typescript: ^5.0.2
-    uniforms: ^3.10.2
-    uniforms-bridge-json-schema: ^3.10.2
-    uniforms-unstyled: ^3.10.2
+    uniforms: 4.0.0-alpha.0
+    uniforms-bridge-json-schema: 4.0.0-alpha.0
+    uniforms-unstyled: 4.0.0-alpha.0
     vite: ^4.4.5
     yaml: ^2.2.2
   languageName: unknown
@@ -3215,29 +3215,42 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uniforms-bridge-json-schema@npm:^3.10.2":
-  version: 3.10.2
-  resolution: "uniforms-bridge-json-schema@npm:3.10.2"
+"uniforms-bridge-json-schema@npm:4.0.0-alpha.0":
+  version: 4.0.0-alpha.0
+  resolution: "uniforms-bridge-json-schema@npm:4.0.0-alpha.0"
   dependencies:
     invariant: ^2.0.0
     lodash: ^4.0.0
     tslib: ^2.2.0
-    uniforms: ^3.10.2
-  checksum: c5eb33b2f58a4f5e107cbbe79652373d1104ddb547ae1d5a3f31d5fc57c4dde03ce00835f1c5e284d782dc4a6f49f7b797b636aaff9d3a84fe2f9133f394a48f
+    uniforms: ^4.0.0-alpha.0
+  checksum: 8ce0dbc34e1aba32f6242c649b9a693f60d56aef129237b2a766aef2fb0c3c20ee7c236e748e391a829dacfe5c045e44e5d1f568b7dff4a00b3da0d0b6c238bf
   languageName: node
   linkType: hard
 
-"uniforms-unstyled@npm:^3.10.2":
-  version: 3.10.2
-  resolution: "uniforms-unstyled@npm:3.10.2"
+"uniforms-unstyled@npm:4.0.0-alpha.0":
+  version: 4.0.0-alpha.0
+  resolution: "uniforms-unstyled@npm:4.0.0-alpha.0"
   dependencies:
     invariant: ^2.0.0
     lodash: ^4.0.0
     tslib: ^2.2.0
-    uniforms: ^3.10.2
+    uniforms: ^4.0.0-alpha.0
   peerDependencies:
     react: ^18.0.0 || ^17.0.0 || ^16.8.0
-  checksum: a035a455b7f492e671c4c966a7b91db44dda8fa4d67f24bf6674d284716ef0500eb8965c348459ced25cd39c86e811fa42e22c9dcd658134da2439455ebe0355
+  checksum: b954658d32c32115dca257398df5f8b8a989c19e5041f94c84838da20d15fb3e53fd97a0456b56bd2c7a1710378f3ebb803eb20d62b3c862cf6d62ca755bdfcd
+  languageName: node
+  linkType: hard
+
+"uniforms@npm:4.0.0-alpha.0":
+  version: 4.0.0-alpha.0
+  resolution: "uniforms@npm:4.0.0-alpha.0"
+  dependencies:
+    invariant: ^2.0.0
+    lodash: ^4.0.0
+    tslib: ^2.2.0
+  peerDependencies:
+    react: ^18.0.0 || ^17.0.0 || ^16.8.0
+  checksum: d10e27403e12a2a262af2af3f4277e7eb2ca0ee4787f6cf32b1797f99389d0587c8b087b96366e65583a82f578a6a72084173235a5c4b17b58c9809c9f48ce05
   languageName: node
   linkType: hard
 
@@ -3251,6 +3264,19 @@ __metadata:
   peerDependencies:
     react: ^18.0.0 || ^17.0.0 || ^16.8.0
   checksum: 6a9284b8a6eab09074a3a64d60ea3b9f7c5112f26d45f986aa73c299d1583c7d866d609c318063a21ce8389ae31ad8d935a0454e26e76f14bf73604197104fd0
+  languageName: node
+  linkType: hard
+
+"uniforms@npm:^4.0.0-alpha.0":
+  version: 4.0.0-alpha.5
+  resolution: "uniforms@npm:4.0.0-alpha.5"
+  dependencies:
+    invariant: ^2.0.0
+    lodash: ^4.0.0
+    tslib: ^2.2.0
+  peerDependencies:
+    react: ^18.0.0 || ^17.0.0 || ^16.8.0
+  checksum: ce76babac327849077976bd5d7dfc75959fbf97e7e3f4c76bda7a75a3bd5360a3c6e8f341134d510325a66a6d978e3a634336a96cf03f94f9605dae0e9b6d889
   languageName: node
   linkType: hard
 

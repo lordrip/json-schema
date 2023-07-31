@@ -7,48 +7,39 @@
       "org.apache.camel.model.OnExceptionDefinition": {
         "type": "object",
         "properties": {
-          "on-when": {
-            "$ref": "#/items/definitions/org.apache.camel.model.WhenDefinition"
-          }
-        }
-      },
-      "org.apache.camel.model.WhenDefinition": {
-        "type": "object",
-        "properties": {
-          "expression": {
-            "$ref": "#/items/definitions/org.apache.camel.model.language.ExpressionDefinition"
-          }
-        }
-      },
-      "org.apache.camel.model.language.ExpressionDefinition": {
-        "type": "object",
-        "properties": {
-          "constant": {
-            "$ref": "#/items/definitions/org.apache.camel.model.language.ConstantExpression"
-          }
-        }
-      },
-      "org.apache.camel.model.language.ConstantExpression" : {
-        "oneOf" : [ {
-          "type" : "string"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "expression" : {
-              "type" : "string"
-            },
-            "id" : {
-              "type" : "string"
-            },
-            "result-type" : {
-              "type" : "string"
-            },
-            "trim" : {
-              "type" : "boolean"
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/items/definitions/org.apache.camel.model.ProcessorDefinition"
             }
           }
-        } ],
-        "required" : [ "expression" ]
+        }
+      },
+      "org.apache.camel.model.ProcessorDefinition": {
+        "type": "object",
+        "maxProperties": 1,
+        "properties": {
+          "aggregate": {
+            "$ref": "#/items/definitions/org.apache.camel.model.AggregateDefinition"
+          }
+        }
+      },
+      "org.apache.camel.model.AggregateDefinition": {
+        "type": "object",
+        "properties": {
+          "aggregation-strategy": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/items/definitions/org.apache.camel.model.ProcessorDefinition"
+            }
+          }
+        },
+        "required": [
+          "aggregation-strategy"
+        ]
       }
     },
     "properties": {

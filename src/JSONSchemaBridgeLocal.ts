@@ -92,6 +92,7 @@ export class JSONSchemaBridge extends Bridge {
 
     // Memoize for performance and referential equality.
     this.getField = memoize(this.getField.bind(this));
+    this.getInitialValue = memoize(this.getInitialValue.bind(this));
     this.getSubfields = memoize(this.getSubfields.bind(this));
     this.getType = memoize(this.getType.bind(this));
   }
@@ -206,7 +207,8 @@ export class JSONSchemaBridge extends Bridge {
     }, this.schema);
   }
 
-  getInitialValue(name: string, props?: Record<string, any>): any {
+  getInitialValue(name: string): any {
+    console.log(name);
     const field = this.getField(name);
     const {
       default: defaultValue = field.default ?? get(this.schema.default, name),
@@ -218,15 +220,19 @@ export class JSONSchemaBridge extends Bridge {
     }
 
     if (type === 'array') {
-      const item = this.getInitialValue(joinName(name, '0'));
-      const items = props?.initialCount || 0;
-      return Array.from({ length: items }, () => item);
+      const item = this.getInitialValue(joinName(name, '$'));
+      if (item === undefined) {
+        return [];
+      }
+
+      const length = field?.minItems || 0;
+      return Array.from({ length }, () => item);
     }
 
     if (type === 'object') {
       const value: Record<string, unknown> = {};
       this.getSubfields(name).forEach(key => {
-        const initialValue = this.getInitialValue(joinName(name, key), undefined);
+        const initialValue = this.getInitialValue(joinName(name, key));
         if (initialValue !== undefined) {
           value[key] = initialValue;
         }
