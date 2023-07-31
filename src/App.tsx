@@ -13,7 +13,7 @@ export function App() {
   const [modelsList, setModelsList] = useState<string[]>([]);
   const [allModelsDefinitions, setAllModelsDefinitions] = useState<Record<string, unknown>[]>([]);
 
-  const [currentModelDefinition, setCurrentModelDefinition] = useState<ModelDefinition>(new ModelDefinition({name: '', model: {}, schema: {}}));
+  const [currentModelDefinition, setCurrentModelDefinition] = useState<ModelDefinition>();
 
   const onAddModel = useCallback((modelName: string) => {
     modelsManagerRef.current.addModel(modelName);
@@ -27,7 +27,7 @@ export function App() {
   }, []);
 
   const onSetModel = useCallback((model: Record<string, unknown>) => {
-    modelsManagerRef.current.setModel(currentModelDefinition?.config.name, model);
+    modelsManagerRef.current.setModel(currentModelDefinition!.config.name, model);
     setAllModelsDefinitions(modelsManagerRef.current.getAllModels());
   }, [currentModelDefinition]);
 

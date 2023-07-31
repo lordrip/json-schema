@@ -13,12 +13,15 @@ interface FormProps {
 }
 
 export const Form: FunctionComponent<FormProps> = (props) => {
+  const formRef = useRef<typeof AutoForm>();
   const schemaServiceRef = useRef(new SchemaService());
 
-  const [model] = useState<Record<string, unknown>>(props.modelDefinition?.config.model);
+  const [model, setModel] = useState<Record<string, unknown>>();
   const [schema, setSchema] = useState<JSONSchemaBridge>();
-
   useEffect(() => {
+    formRef.current?.reset();
+
+    setModel(props.modelDefinition?.config.model);
     setSchema(schemaServiceRef.current.getSchemaBridge(props.modelDefinition?.config.schema));
   }, [props.modelDefinition]);
 
@@ -26,6 +29,7 @@ export const Form: FunctionComponent<FormProps> = (props) => {
     <>
       {schema === undefined ? null : (
         <AutoForm
+          ref={formRef}
           className={props.className}
           schema={schema}
           model={model}
