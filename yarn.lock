@@ -3272,32 +3272,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uniforms@npm:^3.10.2":
-  version: 3.10.2
-  resolution: "uniforms@npm:3.10.2"
-  dependencies:
-    invariant: ^2.0.0
-    lodash: ^4.0.0
-    tslib: ^2.2.0
-  peerDependencies:
-    react: ^18.0.0 || ^17.0.0 || ^16.8.0
-  checksum: 6a9284b8a6eab09074a3a64d60ea3b9f7c5112f26d45f986aa73c299d1583c7d866d609c318063a21ce8389ae31ad8d935a0454e26e76f14bf73604197104fd0
-  languageName: node
-  linkType: hard
-
-"uniforms@npm:^4.0.0-alpha.0":
-  version: 4.0.0-alpha.5
-  resolution: "uniforms@npm:4.0.0-alpha.5"
-  dependencies:
-    invariant: ^2.0.0
-    lodash: ^4.0.0
-    tslib: ^2.2.0
-  peerDependencies:
-    react: ^18.0.0 || ^17.0.0 || ^16.8.0
-  checksum: ce76babac327849077976bd5d7dfc75959fbf97e7e3f4c76bda7a75a3bd5360a3c6e8f341134d510325a66a6d978e3a634336a96cf03f94f9605dae0e9b6d889
-  languageName: node
-  linkType: hard
-
 "unique-filename@npm:^3.0.0":
   version: 3.0.0
   resolution: "unique-filename@npm:3.0.0"
