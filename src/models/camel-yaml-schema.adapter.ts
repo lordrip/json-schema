@@ -24,7 +24,7 @@ export class CamelYamlSchemaAdapter implements SchemaAdapter {
     return this.modelsList;
   }
 
-  getSchema(propertyRefName: string): Record<string, unknown> {
+  getSchema(propertyRefName: keyof typeof camelYamlDslSchema.items.properties): Record<string, unknown> {
     const propertyRef = camelYamlDslSchema.items.properties[propertyRefName];
 
     if (!propertyRef) {

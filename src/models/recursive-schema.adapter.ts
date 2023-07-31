@@ -24,7 +24,7 @@ export class RecursiveSchemaAdapter implements SchemaAdapter {
     return this.modelsList;
   }
 
-  getSchema(propertyRefName: string): Record<string, unknown> {
+  getSchema(propertyRefName: keyof typeof recursiveSchema.items.properties): Record<string, unknown> {
     const propertyRef = recursiveSchema.items.properties[propertyRefName];
 
     if (!propertyRef) {
