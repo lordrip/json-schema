@@ -7,7 +7,7 @@ import { stringify } from 'yaml';
 
 interface YamlExporterProps {
   className?: string;
-  model: Record<string, unknown>;
+  model: Record<string, unknown> | Record<string, unknown>[];
 }
 
 export const YamlExporter: FunctionComponent<YamlExporterProps> = (props) => {
