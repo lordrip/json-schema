@@ -1,5 +1,5 @@
 import userSchema from '../assets/user-schema.json' assert { type: 'json' };
-import { SchemaAdapter } from './schema-adapter';
+import { SchemaAdapter } from '../models';
 
 export class UserSchemaAdapter implements SchemaAdapter {
   private readonly itemsDefinition: Record<string, unknown> = {};

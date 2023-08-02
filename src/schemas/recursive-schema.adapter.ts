@@ -1,7 +1,7 @@
-import camelYamlDslSchema from '../assets/camel-yaml-dsl.json' assert { type: 'json' };
-import { SchemaAdapter } from './schema-adapter';
+import recursiveSchema from '../assets/recursive-schema.json' assert { type: 'json' };
+import { SchemaAdapter } from '../models';
 
-export class CamelYamlSchemaAdapter implements SchemaAdapter {
+export class RecursiveSchemaAdapter implements SchemaAdapter {
   private readonly itemsDefinition: Record<string, unknown> = {};
   private readonly modelsList: string[] = [];
 
@@ -9,19 +9,19 @@ export class CamelYamlSchemaAdapter implements SchemaAdapter {
     /** Capturing the items.definitions object to avoid copying it inside individual schemas */
     this.itemsDefinition = {
       items: {
-        definitions: camelYamlDslSchema.items.definitions,
+        definitions: recursiveSchema.items.definitions,
       },
     };
 
-    this.modelsList = Object.keys(camelYamlDslSchema.items.properties);
+    this.modelsList = Object.keys(recursiveSchema.items.properties);
   }
 
   getModelsList(): string[] {
     return this.modelsList;
   }
 
-  getSchema(propertyRefName: keyof typeof camelYamlDslSchema.items.properties): Record<string, unknown> {
-    const propertyRef = camelYamlDslSchema.items.properties[propertyRefName];
+  getSchema(propertyRefName: keyof typeof recursiveSchema.items.properties): Record<string, unknown> {
+    const propertyRef = recursiveSchema.items.properties[propertyRefName];
 
     if (!propertyRef) {
       throw new Error(

@@ -1,5 +1,5 @@
 import Ajv, { JSONSchemaType } from 'ajv';
-import { JSONSchemaBridge } from './JSONSchemaBridgeLocal';
+import { JSONSchemaBridge } from './schemas/JSONSchemaBridgeLocal';
 import addFormats from 'ajv-formats';
 
 export class SchemaService {

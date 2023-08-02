@@ -1,10 +1,9 @@
 import { AutoFields, AutoForm, ErrorsField, SubmitField } from '@kie-tools/uniforms-patternfly/dist/esm';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
-import { JSONSchemaBridge } from './JSONSchemaBridgeLocal';
-import './App.css';
+import { JSONSchemaBridge } from '../schemas/JSONSchemaBridgeLocal';
 import { CustomAutoField } from './CustomAutoField';
-import { SchemaService } from './SchemaService';
-import { ModelDefinition } from './models/model-definition';
+import { SchemaService } from '../SchemaService';
+import { ModelDefinition } from '../models/model-definition';
 
 interface FormProps {
   className?: string;

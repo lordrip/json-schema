@@ -2,9 +2,9 @@ import { useCallback, useRef, useState } from 'react';
 import './App.css';
 import { ModelSelector } from './ModelSelector';
 import { ModelsList } from './ModelsList';
-import { ModelsManager } from './models';
-import { Form } from './Form';
 import { YamlExporter } from './YamlExporter';
+import { Form } from './forms';
+import { ModelsManager } from './models';
 import { ModelDefinition } from './models/model-definition';
 
 export function App() {
@@ -26,10 +26,13 @@ export function App() {
     setCurrentModelDefinition(model);
   }, []);
 
-  const onSetModel = useCallback((model: Record<string, unknown>) => {
-    modelsManagerRef.current.setModel(currentModelDefinition!.config.name, model);
-    setAllModelsDefinitions(modelsManagerRef.current.getAllModels());
-  }, [currentModelDefinition]);
+  const onSetModel = useCallback(
+    (model: Record<string, unknown>) => {
+      modelsManagerRef.current.setModel(currentModelDefinition!.config.name, model);
+      setAllModelsDefinitions(modelsManagerRef.current.getAllModels());
+    },
+    [currentModelDefinition],
+  );
 
   return (
     <div className="shell">

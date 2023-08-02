@@ -1,8 +1,8 @@
-import { CamelYamlSchemaAdapter } from './camel-yaml-schema.adapter';
+import { CamelYamlSchemaAdapter } from '../schemas/camel-yaml-schema.adapter';
+import { RecursiveSchemaAdapter } from '../schemas/recursive-schema.adapter';
+import { UserSchemaAdapter } from '../schemas/user-schema.adapter';
 import { ModelDefinition } from './model-definition';
-import { RecursiveSchemaAdapter } from './recursive-schema.adapter';
 import { SchemaAdapter } from './schema-adapter';
-import { UserSchemaAdapter } from './user-schema.adapter';
 
 /**
  * ModelsManager
