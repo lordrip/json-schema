@@ -1,6 +1,8 @@
-import { CamelYamlSchemaAdapter, SchemaAdapter } from './camel-yaml-schema.adapter';
+import { CamelYamlSchemaAdapter } from './camel-yaml-schema.adapter';
 import { ModelDefinition } from './model-definition';
 import { RecursiveSchemaAdapter } from './recursive-schema.adapter';
+import { SchemaAdapter } from './schema-adapter';
+import { UserSchemaAdapter } from './user-schema.adapter';
 
 /**
  * ModelsManager
@@ -67,8 +69,9 @@ export class ModelsManager {
   }
 
   private loadSchemaAdapters(): void {
-    this.loadSchemaAdapter(new CamelYamlSchemaAdapter());
+    this.loadSchemaAdapter(new UserSchemaAdapter());
     this.loadSchemaAdapter(new RecursiveSchemaAdapter());
+    this.loadSchemaAdapter(new CamelYamlSchemaAdapter());
   }
 
   private loadSchemaAdapter(adapter: SchemaAdapter): void {

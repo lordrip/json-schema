@@ -1,7 +1,7 @@
-import camelYamlDslSchema from '../assets/camel-yaml-dsl.json' assert { type: 'json' };
+import userSchema from '../assets/user-schema.json' assert { type: 'json' };
 import { SchemaAdapter } from './schema-adapter';
 
-export class CamelYamlSchemaAdapter implements SchemaAdapter {
+export class UserSchemaAdapter implements SchemaAdapter {
   private readonly itemsDefinition: Record<string, unknown> = {};
   private readonly modelsList: string[] = [];
 
@@ -9,19 +9,19 @@ export class CamelYamlSchemaAdapter implements SchemaAdapter {
     /** Capturing the items.definitions object to avoid copying it inside individual schemas */
     this.itemsDefinition = {
       items: {
-        definitions: camelYamlDslSchema.items.definitions,
+        definitions: userSchema.properties,
       },
     };
 
-    this.modelsList = Object.keys(camelYamlDslSchema.items.properties);
+    this.modelsList = Object.keys(userSchema.properties);
   }
 
   getModelsList(): string[] {
     return this.modelsList;
   }
 
-  getSchema(propertyRefName: keyof typeof camelYamlDslSchema.items.properties): Record<string, unknown> {
-    const propertyRef = camelYamlDslSchema.items.properties[propertyRefName];
+  getSchema(propertyRefName: keyof typeof userSchema.properties): Record<string, unknown> {
+    const propertyRef = userSchema.properties[propertyRefName];
 
     if (!propertyRef) {
       throw new Error(
@@ -30,13 +30,6 @@ export class CamelYamlSchemaAdapter implements SchemaAdapter {
     }
 
     /** TODO: Cache the created schemas to avoid duplicating memory on every request */
-    return {
-      $schema: 'https://json-schema.org/draft-04/schema#',
-      type: 'object',
-      items: this.itemsDefinition.items,
-      properties: {
-        [propertyRefName]: propertyRef,
-      },
-    };
+    return userSchema;
   }
 }

@@ -1,9 +1,5 @@
 import recursiveSchema from '../assets/recursive-schema.json' assert { type: 'json' };
-
-export interface SchemaAdapter {
-  getModelsList(): string[];
-  getSchema(modelName: string): Record<string, unknown>;
-}
+import { SchemaAdapter } from './schema-adapter';
 
 export class RecursiveSchemaAdapter implements SchemaAdapter {
   private readonly itemsDefinition: Record<string, unknown> = {};

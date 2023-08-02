@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "example-property": {
+      "title": "Example Property Title",
+      "description": "Example Property Description",
+      "defaultValue": "Example Property Default Value",
+      "type": "string"
+    }
+  }
+}
