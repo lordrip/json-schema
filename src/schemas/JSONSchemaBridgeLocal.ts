@@ -208,7 +208,6 @@ export class JSONSchemaBridge extends Bridge {
   }
 
   getInitialValue(name: string): any {
-    console.log(name);
     const field = this.getField(name);
     const {
       default: defaultValue = field.default ?? get(this.schema.default, name),

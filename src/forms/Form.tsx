@@ -1,9 +1,9 @@
-import { AutoFields, AutoForm, ErrorsField, SubmitField } from '@kie-tools/uniforms-patternfly/dist/esm';
+import { AutoFields, AutoForm, ErrorsField } from '@kie-tools/uniforms-patternfly/dist/esm';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
-import { JSONSchemaBridge } from '../schemas/JSONSchemaBridgeLocal';
-import { CustomAutoField } from './CustomAutoField';
 import { SchemaService } from '../SchemaService';
 import { ModelDefinition } from '../models/model-definition';
+import { JSONSchemaBridge } from '../schemas/JSONSchemaBridgeLocal';
+import { CustomAutoField } from './CustomAutoField';
 
 interface FormProps {
   className?: string;
@@ -40,9 +40,7 @@ export const Form: FunctionComponent<FormProps> = (props) => {
           }}
         >
           <AutoFields autoField={CustomAutoField} />
-          {/* <AutoFields /> */}
           <ErrorsField />
-          <SubmitField />
         </AutoForm>
       )}
     </>
