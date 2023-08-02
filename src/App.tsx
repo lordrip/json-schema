@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './App.css';
 import { ModelSelector } from './ModelSelector';
 import { ModelsList } from './ModelsList';
@@ -33,6 +33,12 @@ export function App() {
     },
     [currentModelDefinition],
   );
+
+  useEffect(() => {
+    onAddModel('example-property');
+    onAddModel('rest');
+    onAddModel('rest-configuration');
+  }, [onAddModel]);
 
   return (
     <div className="shell">
