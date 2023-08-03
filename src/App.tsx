@@ -37,7 +37,7 @@ export function App() {
   useEffect(() => {
     onAddModel('example-property');
     onAddModel('rest');
-    onAddModel('rest-configuration');
+    onAddModel('restConfiguration');
   }, [onAddModel]);
 
   return (

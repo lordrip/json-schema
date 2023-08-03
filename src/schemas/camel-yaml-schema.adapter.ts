@@ -1,4 +1,4 @@
-import camelYamlDslSchema from '../assets/camel-yaml-dsl.json' assert { type: 'json' };
+import camelYamlDslSchema from '../assets/enhanced-camel-yaml-dsl.json' assert { type: 'json' };
 import { SchemaAdapter } from '../models';
 
 export class CamelYamlSchemaAdapter implements SchemaAdapter {
