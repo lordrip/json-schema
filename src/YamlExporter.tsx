@@ -10,15 +10,17 @@ interface YamlExporterProps {
   model: Record<string, unknown> | Record<string, unknown>[];
 }
 
+const tabSize = 2;
+
 export const YamlExporter: FunctionComponent<YamlExporterProps> = (props) => {
   const [language, setLanguage] = useState<Language>(Language.yaml);
   const [stringifiedModel, setStringifiedModel] = useState<string>('');
 
   useEffect(() => {
     if (language === 'yaml') {
-      setStringifiedModel(stringify(props.model));
+      setStringifiedModel(stringify(props.model, { indent: tabSize }));
     } else {
-      setStringifiedModel(JSON.stringify(props.model, null, 4));
+      setStringifiedModel(JSON.stringify(props.model, null, tabSize));
     }
   }, [props.model, language]);
 
@@ -30,9 +32,16 @@ export const YamlExporter: FunctionComponent<YamlExporterProps> = (props) => {
   }, []);
 
   const onEditorDidMount: EditorDidMount = useCallback((editor, monaco) => {
-    editor.layout();
-    editor.focus();
-    monaco.editor.getModels()[0].updateOptions({ tabSize: 4 });
+    setTimeout(() => {
+      monaco.editor.getModels()[0].updateOptions({
+        tabSize,
+        bracketColorizationOptions: { enabled: true, independentColorPoolPerBracketType: true },
+      });
+      editor.layout();
+      editor.focus();
+
+      editor.setPosition({ lineNumber: 1, column: 1 });
+    }, 0);
   }, []);
 
   const customControls = [
@@ -70,8 +79,8 @@ export const YamlExporter: FunctionComponent<YamlExporterProps> = (props) => {
           language={language}
           onEditorDidMount={onEditorDidMount}
           customControls={customControls}
-          height='90vh'
-          />
+          height="90vh"
+        />
       </Card>
     </div>
   );
