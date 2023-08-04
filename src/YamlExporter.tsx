@@ -38,6 +38,7 @@ export const YamlExporter: FunctionComponent<YamlExporterProps> = (props) => {
   const customControls = [
     <CodeEditorControl
       icon={<CopyIcon />}
+      key="Convert to YAML"
       aria-label="Convert to YAML"
       tooltipProps={{ content: 'Convert to YAML' }}
       onClick={onYamlClick}
@@ -45,6 +46,7 @@ export const YamlExporter: FunctionComponent<YamlExporterProps> = (props) => {
     />,
     <CodeEditorControl
       icon={<JsIcon />}
+      key="Convert to JSON"
       aria-label="Convert to JSON"
       tooltipProps={{ content: 'Convert to JSON' }}
       onClick={onJsonClick}
