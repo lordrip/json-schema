@@ -3,6 +3,7 @@ import './App.css';
 import { ModelSelector } from './ModelSelector';
 import { ModelsList } from './ModelsList';
 import { YamlExporter } from './YamlExporter';
+import restDefinition from './assets/rest-definition.json';
 import { Form } from './forms';
 import { ModelsManager } from './models';
 import { ModelDefinition } from './models/model-definition';
@@ -34,11 +35,17 @@ export function App() {
     [currentModelDefinition],
   );
 
+  /** Fill default information */
   useEffect(() => {
     onAddModel('example-property');
     onAddModel('rest');
     onAddModel('restConfiguration');
-  }, [onAddModel]);
+
+    const restModel = modelsManagerRef.current.getModelDefinition('rest');
+    restModel.setModel(restDefinition);
+    setAllModelsDefinitions(modelsManagerRef.current.getAllModels());
+    onModelClick('rest');
+  }, [onAddModel, onModelClick]);
 
   return (
     <div className="shell">
