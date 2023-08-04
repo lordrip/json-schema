@@ -4,6 +4,7 @@ import { createAutoField } from 'uniforms';
 import { CustomNestField } from './CustomNestField';
 import { CustomStepsField } from './CustomStepsField';
 import { CustomTextField } from './CustomTextField';
+import { RestForm } from '../rest/RestForm';
 
 export const CustomAutoField = createAutoField((props) => {
   if (props.allowedValues) {
@@ -12,6 +13,10 @@ export const CustomAutoField = createAutoField((props) => {
 
   if (props.name.endsWith('steps')) {
     return CustomStepsField;
+  }
+
+  if (props.field.title === 'Rest') {
+    return RestForm;
   }
 
   switch (props.fieldType) {
